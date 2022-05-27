@@ -1,0 +1,101 @@
+//@reloadnpc npc/cities/hugel.txt
+//===== rAthena Script =======================================
+//= Hugel City
+//===== By: ==================================================
+//= vicious_pucca, Poki#3, erKURITA, Munin, and everybody in the
+//= comments
+//===== Current Version: =====================================
+//= 1.7
+//===== Compatible With: =====================================
+//= rAthena Project
+//===== Description: =========================================
+//= NPC's for the City of Hugel.
+//===== Additional Comments: =================================
+//= Cords and Sprites are 100% Correct, but the names are not.
+//= Plus no one knows what the NPCs are talking right now :/ [Poki#3]
+//= Note: Not all the sprites were correct :P [erKURITA]
+//= 1.0 Added the first shop, firecrackers. Thanks RockmanEXE for the info [erKURITA]
+//=     Added more missing npc, but again, only locations and temp names =/ [erKURITA]
+//=     Started the basis of Poring Track. [erKURITA]
+//=     Moved the old lady to npc\guides\guides_hu.txt, since it's Hugel's guard [erKURITA]
+//=     Special thanks to RockmanEXE who provided all necesary info =3
+//=     Abducted/Moved Yan and Yalmire(temp names) to npc\events\custom\p_track. [erKURITA]
+//= 1.1 Commented out the whole list of dummy npcs. They're there for nothing anyway,
+//=     just using up memory. [erKURITA]
+//= 1.2 Added a few NPCs scripted by Munin and fixed up format a little [Playtester]
+//= 1.3 Moved some quests-related NPCs to proper file. [SinSloth]
+//= 1.4 Optimized the Party Supplies Shop [DZeroX]
+//= 1.5 Fixed Party Supplies Shop. [L0ne_W0lf]
+//= 1.6 Removed duplicate "Mudie". [L0ne_W0lf]
+//= 1.7 Removed whitespace and junk. [Kisuka]
+//============================================================
+
+// Hugel
+//============================================================
+hugel,189,143,5	script	청년#hugel	898,{
+	npctalk "오! 저 거대한 바람주머니가 하늘에 뜨게 해준다는 거야?";
+	sleep 2000;
+	npctalk "나도 배에 바람을 잔뜩 넣어서 공중에 둥둥 떠다닐까?";
+}
+
+hugel,126,151,3	script	에밀리#hugel	90,{
+	npctalk "시골이긴 하지만 정말 여기는 평화로운 곳이예요. 이웃들도 모두 좋으신 분들만 계시고.";
+	sleep 2000;
+	npctalk "하지만 우리 언니는 맨날 이곳을 나가려고만해요.";
+}
+
+hugel,86,165,5	script	마을 소년#hugel	896,{
+	npctalk "저 빨간통 너무 갖고 싶어요. 우리 엄마에게 나도 저 빨간통 사 달라고 할까요?";
+}
+
+hugel,71,197,3	script	리사#hugel	90,{
+	npctalk "휘겔은 워낙 마을이 작아서. 하루에도 누가 무슨일이 있었는지 금방 소문이 퍼지죠.";
+	sleep 2000;
+	npctalk "저는 이런 시골마을이 너무 싫어요. 어서 큰 마을로 나가서 살고싶어요.";
+}
+
+// Inside Hugel
+//============================================================
+hu_in01,111,386,4	script	크리스#hu_in01	86,{
+	mes "[크리스]";
+	mes "사실 이 마을에서는 무기는 적을 무찌른다기보다 사냥이나 채집, 그리고 그 때 자신의 몸을 지키기 위해서 구비하는 경우가 많습니다.";
+	next;
+	mes "[크리스]";
+	mes "좋은 걸 사시려면 큰 도시로 나가셔야 해요.";
+	close;
+}
+
+-	shop	축제 용품 상인샵#hu_in01	-1,12018:100
+
+hu_in01,23,311,4	script	축제 용품 상인#hu_in01	898,{
+	mes "[축제 용품 상인]";
+	mes "어서오세요!";
+	mes "친구들과 함께 예쁜 폭죽 놀이 해보지 않으시겠어요?";
+	close2;
+	callshop	"축제 용품 상인샵#hu_in01",1;
+	end;
+}
+
+hu_in01,18,94,0	script	아르바이트생#hu_in01	49,{
+	mes "[루다]";
+	mes "어서오세요. 여긴 신전 발굴단 사무실이고... 저는";
+	mes "아르바이트생이에요. 사무실의 정리를 맡고 있지만 보시다시피 이 정도로 어질러져선 손 쓸 방법이 없어요.";
+	next;
+	mes "[루다]";
+	mes "마을 제일의 정리꾼인 제가 특별히 일을 하러 왔지요. 엣헴.";
+	next;
+	mes "[루다]";
+	mes "이 ^0000cd윗쪽 방에는 우리 슈발츠발드, 아랫쪽 방에는 룬-미드가츠에서 온 발굴단 사람들^000000이 각각 자리를 잡고 있는데 사이가 미묘하게 나빠요.";
+	next;
+	mes "[루다]";
+	mes "그래서 제 일이 좀 더 늘어나 있죠.";
+	next;
+	mes "[루다]";
+	mes "모험가님도 일거리를 찾아보시는 게 어때요? 보수는 비록 적지만 보람된 작업이랍니다. 어느쪽 방엘 가든 일은 비슷할 거예요.";
+	close;
+}
+
+hu_in01,26,77,4	script	아르바이트생#hu_in01_1	50,{
+	mes "-- 책 정리에 여념이 없다 --";
+	close;
+}
